@@ -12,12 +12,16 @@ ADD $tomcat .
 ADD $jenkins .
 
 RUN \
-    ls -lah && \
+    apt update && apt install -y openjdk-11-jre-headless && \
     tar -xvzf apache-tomcat-$tcversion.tar.gz && \
     mv apache-tomcat-$tcversion /tomcat && \
     rm -rf /tomcat/webapps/* && \
     mv jenkins.war /tomcat/webapps/ROOT.war && \
-    rm -rf /tmp/*
+    rm -rf /tmp/* && \
+
+    rm -rf /var/lib/apt/lists/* && \
+
+    echo 'Done'
 
 COPY ./default-start.sh /default-start.sh
 RUN chmod +x /default-start.sh
