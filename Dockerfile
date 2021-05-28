@@ -12,7 +12,9 @@ ADD $tomcat .
 ADD $jenkins .
 
 RUN \
-    apt update && apt install -y openjdk-11-jre-headless && \
+    apt update && \
+    apt install -y \
+      openjdk-11-jre-headless git && \
     tar -xvzf apache-tomcat-$tcversion.tar.gz && \
     mv apache-tomcat-$tcversion /tomcat && \
     rm -rf /tomcat/webapps/* && \
