@@ -2,8 +2,8 @@ FROM debian:buster
 LABEL arch="arm|arm64"
 ENV DEBIAN_FRONTEND=noninteractive
 
-ARG tcversion=9.0.58
-ARG jenkinsversion=2.335
+ARG tcversion=9.0.62
+ARG jenkinsversion=2.341
 
 ARG tomcat=https://downloads.apache.org/tomcat/tomcat-9/v$tcversion/bin/apache-tomcat-$tcversion.tar.gz
 ARG jenkins=https://get.jenkins.io/war/$jenkinsversion/jenkins.war
